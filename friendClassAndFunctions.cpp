@@ -19,12 +19,19 @@ class MyClass{
 class myFriend{
 
     public:
+        myFriend(){
+            this->friendclass.myvar = 1234;
+        }
         // has to be passed AN OBJECT OF friend class to then access its member
         int method(MyClass &other){
             std::cout << "done." << other.myvar;
             other.myvar += 1;
             return other.myvar;
+
     }
+
+    private:
+        MyClass friendclass;
 };
 
 
@@ -32,6 +39,5 @@ int main(){
     MyClass hello;
     myFriend myF;
     
-    std::cout << "\n"<< myF.method(hello) << "\n\n";
     return 0;
 }
